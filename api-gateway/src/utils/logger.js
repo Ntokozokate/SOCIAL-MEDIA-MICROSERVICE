@@ -11,21 +11,28 @@ const logger = winston.createLogger({
     winston.format.json(),
   ),
   defaultMeta: {
-    service: "identity-service",
+    service: "api-gateway",
   },
   transports: [
+    // Always log errors to a file
+    // new winston.transports.Console({
+    //   format: winston.format.combine(
+    //     winston.format.colorize(),
+    //     winston.format.simple(),
+    //   ),
+    // }),
     new winston.transports.File({
-      filename: "error.log",
+      filename: "logs/error.log",
       level: "error",
     }),
     new winston.transports.File({
-      filename: "combined.log",
+      filename: "logs/combined.log",
     }),
   ],
 });
 
 //in development, also log to console
-if (!isProduction) {
+if (isProduction) {
   logger.add(
     new winston.transports.Console({
       format: winston.format.combine(

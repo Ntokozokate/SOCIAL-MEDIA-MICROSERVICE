@@ -9,7 +9,7 @@ const errorHandler = (err, req, res, next) => {
 };
 module.exports = errorHandler;
 
-// custom error class
+// // custom error class
 
 // class APIError extends Error {
 //   //this is extending the build in error class
