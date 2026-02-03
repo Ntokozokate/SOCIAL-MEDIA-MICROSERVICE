@@ -1,6 +1,6 @@
 const winston = require("winston");
 
-const isProduction = process.env.NODE_ENV;
+const isProduction = process.env.NODE_ENV === "production";
 
 const logger = winston.createLogger({
   level: isProduction ? "info" : "debug",

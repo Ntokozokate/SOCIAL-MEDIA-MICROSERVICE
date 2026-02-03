@@ -16,7 +16,6 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 //connect to the database
-connectToBD();
 //console.log("MONGO_URI:", process.env.MONGO_URI);
 
 //middlewares
@@ -38,9 +37,22 @@ app.use("/api/auth", routes);
 //Error handler
 app.use(errorHandler);
 
-//start server
-app.listen(port, () => {
-  logger.info(`Identity service is listening on port:  ${port}`);
+//connect to the database and start server only when ready
+//connect to the database and start server only when ready
+
+const startServer = async () => {
+  //connect to the database
+  await connectToBD();
+  //console.log("MONGO_URI:", process.env.MONGO_URI);
+
+  app.listen(port, () => {
+    logger.info(`Identity service is listening on port:  ${port}`);
+  });
+};
+
+startServer().catch((err) => {
+  logger.error("Failed to start identity service:", err);
+  process.exit(1);
 });
 
 // unhandled promise rejection
