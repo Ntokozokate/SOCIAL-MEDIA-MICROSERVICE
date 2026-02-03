@@ -1,33 +1,22 @@
 require("dotenv").config();
-const mongoose = require("mongoose");
-const logger = require("./utils/logger");
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const { RateLimiterRedis } = require("rate-limiter-flexible");
-const { rateLimiter } = require("express-rate-limit");
-
 const Redis = require("ioredis");
+const logger = require("./utils/logger");
+const routes = require("./routers/identity.service");
+const errorHandler = require("./middleware/error.handler");
+const { connectToBD } = require("./config/mongo");
+const {
+  sensitiveEndPointLimiter,
+  globalRateLimiter,
+} = require("./middleware/rate.limiter");
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 //connect to the database
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => logger.info("Connected to mongodb"))
-  .catch((err) => {
-    logger.error("MongoDB connection error", err);
-    process.exit(1);
-  });
-
-const redisClient = new Redis(process.env.REDIS_URL);
-redisClient.on("connect", () => {
-  logger.info("Redis connected");
-});
-
-redisClient.on("error", (err) => {
-  logger.error("Redis error", err);
-});
+//console.log("MONGO_URI:", process.env.MONGO_URI);
 
 //middlewares
 app.use(helmet());
@@ -36,36 +25,37 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   logger.info(`Received ${req.method} request to ${req.url}`);
-  logger.info(`Request body,  ${req.body}`);
+  logger.info(`Request body,  ${JSON.stringify(req.body)}`); //security risk though
   next();
 });
-//DDos protection||Application-layer-rte-limiting
-const rateLimiter = new RateLimiterRedis({
-  storeClient: redisClient,
-  keyPrefix: "middleware",
-  points: 100,
-  duration: 60,
-});
-app.use((req, res, next) => {
-  rateLimiter
-    .consume(req.ip)
-    .then(() => next())
-    .catch(() => {
-      logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
-      res.status(429).json({
-        success: false,
-        message: "Too many requests",
-      });
-    });
-});
-//IP based rate limiting for sensitive endpoints
+//apply the global limiter
+app.use(globalRateLimiter);
 
-const sensitiveEndPointsLimiter = rateLimiter({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-  standardHeaders: true, // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
-  handler: (req, res) => {
-    logger.warn(`Sensitive endpoint rate limit exxceeded for IP:  ${req.ip}`);
-  },
+//Routes
+app.use("/api/auth", routes);
+
+//Error handler
+app.use(errorHandler);
+
+//connect to the database and start server only when ready
+//connect to the database and start server only when ready
+
+const startServer = async () => {
+  //connect to the database
+  await connectToBD();
+  //console.log("MONGO_URI:", process.env.MONGO_URI);
+
+  app.listen(port, () => {
+    logger.info(`Identity service is listening on port:  ${port}`);
+  });
+};
+
+startServer().catch((err) => {
+  logger.error("Failed to start identity service:", err);
+  process.exit(1);
+});
+
+// unhandled promise rejection
+process.on("unhandledRejection", (reason, promise) => {
+  logger.error("unhandledRejection at ", promise, "reason:", reason);
 });

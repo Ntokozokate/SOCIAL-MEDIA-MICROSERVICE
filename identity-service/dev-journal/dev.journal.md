@@ -123,3 +123,10 @@ REFRESH TOKENS - longlived credentils used to obtain new access tokens
 - Before storing the refresh tokens they need to be hashed incase of a breach
 - in the utils/generateToken.js i use crypto to create a random string
 - then instead of just storing the random string i hash it using crypto too
+
+### CONFIGURE MONGODB
+
+- store url in .env
+- use logger to log success and failure
+
+### ERROR HANDLER

@@ -27,6 +27,9 @@ const generateTokens = async (user) => {
   });
   return { accessToken, refreshToken }; // the hash never leaves the database so we cant return it down here
 };
+
+module.exports = { generateTokens };
+
 //in the future might want deal with the edge case when user logs in from 5 different devices, the current code just keeps dding tokens
 //by limiting the number of active sessions per user
 // write the logic for token rotation
