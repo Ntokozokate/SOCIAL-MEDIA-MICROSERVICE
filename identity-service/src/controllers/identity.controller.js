@@ -81,10 +81,10 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      logger.warn("User not found");
+      logger.warn("Login attempt for non-existent email");
       return res.status(401).json({
         success: false,
-        message: "User not found or registered",
+        message: "Invalid credentials",
       });
     }
 

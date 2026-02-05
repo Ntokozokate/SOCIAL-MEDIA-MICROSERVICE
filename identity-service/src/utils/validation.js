@@ -6,7 +6,7 @@ const validateRegistration = (data) => {
     email: Joi.string()
       .email({
         minDomainSegments: 2,
-        tlds: { allow: ["com", "net", "org", "io", ".dev", "co"] },
+        tlds: { allow: ["com", "net", "org", "io", "dev", "co"] },
       })
       .required(),
     password: Joi.string().min(8).max(30).required(),
@@ -16,7 +16,10 @@ const validateRegistration = (data) => {
 const validateLogin = (data) => {
   const schema = Joi.object({
     email: Joi.string()
-      .email({ minDomainSegments: 2, tlds: { allow: ["com", "net", "org"] } })
+      .email({
+        minDomainSegments: 2,
+        tlds: { allow: ["com", "net", "org", "io", "dev", "co"] },
+      })
       .required(),
     password: Joi.string().min(8).max(30).required(),
   });

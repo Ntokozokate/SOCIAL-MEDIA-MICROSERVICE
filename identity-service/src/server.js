@@ -18,6 +18,9 @@ const port = process.env.PORT || 3001;
 //connect to the database
 //console.log("MONGO_URI:", process.env.MONGO_URI);
 
+// app.set("trust proxy", 1);
+// logger.info("Client IP:", req.ip);
+
 //middlewares
 app.use(helmet());
 app.use(cors());
