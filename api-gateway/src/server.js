@@ -19,6 +19,9 @@ const port = process.env.PORT || 3000;
 
 const redisClient = new Redis(process.env.REDIS_URL);
 
+app.set("trust proxy", 1);
+logger.info("Client IP:", req.ip);
+
 //middlewares
 app.use(helmet());
 app.use(cors());

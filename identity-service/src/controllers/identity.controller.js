@@ -1,8 +1,11 @@
 //const User = require("../models/User")
 const User = require("../models/User");
 const logger = require("../utils/logger");
-const { validateRegistration } = require("../utils/validation");
+const { validateRegistration, validateLogin } = require("../utils/validation");
 const { generateTokens } = require("../utils/generate.tokens");
+const RefreshToken = require("../models/refresh.token");
+const crypto = require("crypto");
+
 //user registaration
 //remember to always log on importatnt routes
 const registerUser = async (req, res) => {
@@ -65,7 +68,7 @@ const login = async (req, res) => {
 
   try {
     // validate the input
-    const { error, value } = validateRegistration(req.body);
+    const { error, value } = validateLogin(req.body);
     if (error) {
       return res.status(400).json({
         success: false,
@@ -75,13 +78,23 @@ const login = async (req, res) => {
     }
     const { email, password } = value;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
-      logger.debug("User not found");
-      return res.staus(403).json({
-        message: "User not found or registred",
+      logger.warn("User not found");
+      return res.status(401).json({
         success: false,
+        message: "User not found or registered",
+      });
+    }
+
+    // verify password
+    const isValidPassword = await user.comparePasswords(password);
+    if (!isValidPassword) {
+      logger.warn("Invalid user credentials");
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
       });
     }
 
@@ -93,10 +106,10 @@ const login = async (req, res) => {
       success: true,
       accessToken,
       refreshToken,
+      userId: user._id,
     });
   } catch (error) {
-    logger.error("Failed to login");
-
+    logger.error("Failed to login", error);
     return res.status(500).json({
       message: "Could not login user",
       success: false,
@@ -106,7 +119,67 @@ const login = async (req, res) => {
 };
 
 //refresh token
+const refreshTokenController = async (req, res) => {
+  logger.info("Refresh token endpoint.....");
+  try {
+    const { refreshToken } = req.body; // get this dta from cookies next time
+    if (!refreshToken) {
+      logger.warn("Refresh token missing");
+      return res.status(400).json({
+        success: false,
+        message: "refresh token not found",
+      });
+    }
+    //Hash the incoming raw token before searching
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(refreshToken)
+      .digest("hex");
+
+    //get stored token from the database
+    const storedToken = await RefreshToken.findOne({
+      token: hashedToken, // the lookup
+    }).populate("user");
+
+    if (!storedToken) {
+      logger.warn(
+        "Refresh token not found in the database-possible theft attempt",
+      );
+      return res.status(401).json({
+        success: false,
+        message: "Invalid or expired refresh token",
+      });
+    }
+    if (storedToken.expiresAt < new Date()) {
+      logger.info("Session Expired");
+      await storedToken.deleteOne();
+      return res.status(401).json({
+        success: false,
+        message: "Session Expired",
+      });
+    }
+    // ROTATION: delete old token first
+    await storedToken.deleteOne();
+
+    // generate new pair of tokens
+    const { accessToken, refreshToken: newRefreshToken } = await generateTokens(
+      storedToken.user,
+    );
+
+    return res.json({
+      accessToken,
+      refreshToken: newRefreshToken,
+    });
+  } catch (error) {
+    logger.error("Failed to refresh token", error);
+    return res.status(500).json({
+      success: false,
+      message: "Could not refresh token",
+      errors: [],
+    });
+  }
+};
 //create model for refresh token
 
 // logout
-module.exports = { registerUser, login };
+module.exports = { registerUser, login, refreshTokenController };
