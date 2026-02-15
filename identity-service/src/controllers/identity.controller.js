@@ -179,7 +179,43 @@ const refreshTokenController = async (req, res) => {
     });
   }
 };
-//create model for refresh token
 
 // logout
-module.exports = { registerUser, login, refreshTokenController };
+const logOut = async (req, res) => {
+  logger.info("Logout endpoint hit ...");
+  try {
+    const { refreshToken } = req.body;
+    if (!refreshToken) {
+      logger.warn("No refresh token");
+      return res.status(400).json({
+        success: false,
+        message: "Refresh token missing",
+      });
+    }
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(refreshToken)
+      .digest("hex");
+
+    const result = await RefreshToken.deleteOne({ token: hashedToken });
+    if (result.deletedCount === 0) {
+      logger.warn("Logout attempted with invalid or already deleted token");
+    }
+
+    //when i use cookies remeber to clear cookies
+    logger.info("Refresh token deleted for logout");
+    return res.status(200).json({
+      success: true,
+      message: "Successfully logged out",
+    });
+  } catch (error) {
+    logger.error("Failed to logout user", error);
+    return res.status(500).json({
+      success: false,
+      message: "Could not logout user",
+      errors: [],
+    });
+  }
+};
+
+module.exports = { registerUser, login, refreshTokenController, logOut };

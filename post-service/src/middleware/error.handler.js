@@ -14,7 +14,7 @@ module.exports = errorHandler;
 // class APIError extends Error {
 //   //this is extending the build in error class
 //   constructor(message, statusCode) {
-//     //ne ed to call the parent class contractor from error
+//     //need to call the parent class contractor from error
 //     super(message);
 //     this.statusCode = statusCode;
 //     this.name = "APIError"; //set the error type to API error

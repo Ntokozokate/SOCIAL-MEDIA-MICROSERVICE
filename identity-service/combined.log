@@ -1,0 +1,41 @@
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T18:52:00.652Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T18:52:13.226Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T18:52:13.230Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T18:52:37.275Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T18:52:40.560Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T18:52:40.565Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T18:57:31.606Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T18:57:34.366Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T18:57:34.372Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T18:58:09.988Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T18:58:11.883Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T18:58:11.887Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T18:59:04.636Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T18:59:20.767Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T18:59:20.771Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T19:05:54.870Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T19:05:56.364Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T19:05:56.368Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-05T19:06:22.066Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-05T19:06:23.487Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-05T19:06:23.491Z"}
+{"level":"info","message":"Received POST request to /api/auth/register/","service":"identity-service","timestamp":"2026-02-05T19:07:24.006Z"}
+{"level":"info","message":"Request body,  {\"username\":\"GinaLinetti\",\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-02-05T19:07:24.007Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-02-05T19:07:24.175Z"}
+{"level":"warn","message":"User already exists","service":"identity-service","timestamp":"2026-02-05T19:07:24.400Z"}
+{"level":"info","message":"Received POST request to /api/auth/login/","service":"identity-service","timestamp":"2026-02-05T19:07:38.264Z"}
+{"level":"info","message":"Request body,  {\"username\":\"GinaLinetti\",\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-02-05T19:07:38.264Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-02-05T19:07:38.271Z"}
+{"level":"info","message":"Received POST request to /api/auth/login/","service":"identity-service","timestamp":"2026-02-05T19:09:07.406Z"}
+{"level":"info","message":"Request body,  {\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-02-05T19:09:07.406Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-02-05T19:09:07.410Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-02-05T19:09:07.915Z"}
+{"level":"info","message":"Received POST request to /api/auth/logout/","service":"identity-service","timestamp":"2026-02-05T19:12:38.376Z"}
+{"level":"info","message":"Request body,  {\"refreshToken\":\"f169422057fde8e79e968a80d2c093e703034794b651e1c9cf1a811504810f1817e1b18f2d302de6\"}","service":"identity-service","timestamp":"2026-02-05T19:12:38.376Z"}
+{"level":"info","message":"Logout endpoint hit ...","service":"identity-service","timestamp":"2026-02-05T19:12:38.377Z"}
+{"level":"info","message":"Refresh token deleted for logout","service":"identity-service","timestamp":"2026-02-05T19:12:38.504Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-09T05:57:57.242Z"}
+{"error":{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.cluster0.fatvzyr.mongodb.net","syscall":"querySrv"},"level":"error","message":"MongoDB connection failed","service":"identity-service","timestamp":"2026-02-09T05:57:57.257Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-02-15T10:43:25.749Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-02-15T10:43:27.873Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-02-15T10:43:27.879Z"}
