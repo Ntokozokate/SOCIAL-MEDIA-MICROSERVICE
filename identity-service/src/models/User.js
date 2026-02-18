@@ -34,12 +34,9 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  try {
-    this.password = await argon2.hash(this.password);
-    next();
-  } catch (error) {
-    next(error);
-  }
+
+  this.password = await argon2.hash(this.password);
+  next();
 });
 
 userSchema.methods.comparePasswords = async function (candidatePassword) {

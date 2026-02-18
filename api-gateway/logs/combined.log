@@ -43,3 +43,9 @@
 {"level":"info","message":"Identity service is is running on port  http://localhost:3001","service":"api-gateway","timestamp":"2026-02-15T05:56:30.771Z"}
 {"level":"info","message":"Redis Url:  redis://localhost:6379","service":"api-gateway","timestamp":"2026-02-15T05:56:30.772Z"}
 {"level":"info","message":"Redis is connected","service":"api-gateway","timestamp":"2026-02-15T05:56:30.803Z"}
+{"level":"info","message":"Received POST request to /v1/auth/logout/","service":"api-gateway","timestamp":"2026-02-18T04:37:05.408Z"}
+{"level":"info","message":"Request body,  {\"refreshToken\":\"f169422057fde8e79e968a80d2c093e703034794b651e1c9cf1a811504810f1817e1b18f2d302de6\"}","service":"api-gateway","timestamp":"2026-02-18T04:37:05.411Z"}
+{"level":"info","message":"Response received from identity service: 200","service":"api-gateway","timestamp":"2026-02-18T04:37:05.574Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login/","service":"api-gateway","timestamp":"2026-02-18T05:19:04.497Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy12345\"}","service":"api-gateway","timestamp":"2026-02-18T05:19:04.501Z"}
+{"level":"info","message":"Response received from identity service: 200","service":"api-gateway","timestamp":"2026-02-18T05:19:04.826Z"}

@@ -130,3 +130,11 @@ REFRESH TOKENS - longlived credentils used to obtain new access tokens
 - use logger to log success and failure
 
 ### ERROR HANDLER
+
+<!-- - worth notting down -->
+
+Error.captureStackTrace(this, this.constructor);
+
+- doesnt make or break the code
+- makes logs shorter, cleaner and more actionable
+- logs go to centralixed systems and engineers can stack traces faster and less noise.
