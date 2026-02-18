@@ -5,13 +5,12 @@ const cors = require("cors");
 const Redis = require("ioredis");
 const logger = require("./utils/logger");
 const routes = require("./routers/identity.service");
-const errorHandler = require("./middleware/error.handler");
+const errorHandler = require("./middleware/global.errorhandler");
 const { connectToBD } = require("./config/mongo");
 const {
   sensitiveEndPointLimiter,
   globalRateLimiter,
 } = require("./middleware/rate.limiter");
-
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -38,6 +37,7 @@ app.use(globalRateLimiter);
 app.use("/api/auth", routes);
 
 //Error handler
+
 app.use(errorHandler);
 
 //connect to the database and start server only when ready
