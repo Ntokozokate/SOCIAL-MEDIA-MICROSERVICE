@@ -1,5 +1,7 @@
 const logger = require("../utils/logger");
 const Post = require("../models/Post");
+const APIError = require("../errors/APIError");
+const asyncHandler = require("../utils/async.handler");
 
 const createPost = async (req, res) => {
   logger.info("Create post endpoint hit");
@@ -7,16 +9,22 @@ const createPost = async (req, res) => {
   try {
     const { title, content, mediaIds } = req.body;
 
+    if (!title || !content) {
+      return res.status(400).json({
+        success: false,
+        message: "Title and content are required",
+      });
+    }
+
     const newPost = new Post({
       author: req.user.userId,
       title,
       content,
-
       mediaIds: mediaIds || [],
     });
 
     await newPost.save();
-    logger.info("Post created successfully", newPost);
+    logger.info("Post created successfully", { postId: newPost._id });
     return res.status(201).json({
       success: true,
       message: "Post created",
@@ -30,7 +38,7 @@ const createPost = async (req, res) => {
     });
   }
 };
-const getAllPost = async (req, res) => {
+const getAllPosts = async (req, res) => {
   logger.info("Get all Posts end point reached");
 
   try {
@@ -66,3 +74,4 @@ const deletePost = async (req, res) => {
     });
   }
 };
+module.exports = { createPost, getAllPosts, getSinglePost };

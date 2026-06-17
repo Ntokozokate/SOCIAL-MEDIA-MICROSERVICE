@@ -14,9 +14,6 @@ const {
 const app = express();
 const port = process.env.PORT || 3001;
 
-//connect to the database
-//console.log("MONGO_URI:", process.env.MONGO_URI);
-
 // app.set("trust proxy", 1);
 // logger.info("Client IP:", req.ip);
 
@@ -46,7 +43,6 @@ app.use(errorHandler);
 const startServer = async () => {
   //connect to the database
   await connectToBD();
-  //console.log("MONGO_URI:", process.env.MONGO_URI);
 
   app.listen(port, () => {
     logger.info(`Identity service is listening on port:  ${port}`);
