@@ -1,5 +1,7 @@
 require("dotenv").config();
+
 const redisClient = require("./ioredis.client");
+
 const {
   RateLimiterRedis,
   RateLimiterMemory,

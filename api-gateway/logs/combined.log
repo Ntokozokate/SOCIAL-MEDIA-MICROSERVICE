@@ -49,3 +49,26 @@
 {"level":"info","message":"Received POST request to /v1/auth/login/","service":"api-gateway","timestamp":"2026-02-18T05:19:04.497Z"}
 {"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy12345\"}","service":"api-gateway","timestamp":"2026-02-18T05:19:04.501Z"}
 {"level":"info","message":"Response received from identity service: 200","service":"api-gateway","timestamp":"2026-02-18T05:19:04.826Z"}
+{"level":"info","message":"Identity service is listening on port:  3000","service":"api-gateway","timestamp":"2026-03-19T16:50:32.913Z"}
+{"level":"info","message":"Identity service is is running on port  http://localhost:3001","service":"api-gateway","timestamp":"2026-03-19T16:50:32.919Z"}
+{"level":"info","message":"Redis Url:  redis://localhost:6379","service":"api-gateway","timestamp":"2026-03-19T16:50:32.919Z"}
+{"level":"info","message":"Redis is connected","service":"api-gateway","timestamp":"2026-03-19T16:50:32.936Z"}
+{"level":"info","message":"Received POST request to /v1/auth/logout/","service":"api-gateway","timestamp":"2026-03-19T16:50:38.850Z"}
+{"level":"info","message":"Request body,  {\"username\":\"katemoyo\",\"email\":\"kate@gmail.com\",\"password\":\"kate1234\"}","service":"api-gateway","timestamp":"2026-03-19T16:50:38.851Z"}
+{"level":"info","message":"Response received from identity service: 400","service":"api-gateway","timestamp":"2026-03-19T16:50:38.927Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login/","service":"api-gateway","timestamp":"2026-03-19T16:51:06.925Z"}
+{"level":"info","message":"Request body,  {\"username\":\"katemoyo\",\"email\":\"kate@gmail.com\",\"password\":\"kate1234\"}","service":"api-gateway","timestamp":"2026-03-19T16:51:06.926Z"}
+{"level":"info","message":"Response received from identity service: 400","service":"api-gateway","timestamp":"2026-03-19T16:51:06.975Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register/","service":"api-gateway","timestamp":"2026-03-19T17:02:59.581Z"}
+{"level":"info","message":"Request body,  {\"username\":\"katemoyo\",\"email\":\"kate@gmail.com\",\"password\":\"kate1234\"}","service":"api-gateway","timestamp":"2026-03-19T17:02:59.583Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-03-19T17:02:59.594Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login/","service":"api-gateway","timestamp":"2026-03-19T17:04:58.467Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy12345\"}","service":"api-gateway","timestamp":"2026-03-19T17:04:58.467Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-03-19T17:04:58.469Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login/","service":"api-gateway","timestamp":"2026-03-19T17:05:21.944Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy12345\"}","service":"api-gateway","timestamp":"2026-03-19T17:05:21.944Z"}
+{"level":"info","message":"Response received from identity service: 429","service":"api-gateway","timestamp":"2026-03-19T17:05:22.043Z"}
+{"level":"info","message":"Identity service is listening on port:  3000","service":"api-gateway","timestamp":"2026-04-18T18:33:13.475Z"}
+{"level":"info","message":"Identity service is is running on port  http://localhost:3001","service":"api-gateway","timestamp":"2026-04-18T18:33:13.483Z"}
+{"level":"info","message":"Redis Url:  redis://localhost:6379","service":"api-gateway","timestamp":"2026-04-18T18:33:13.483Z"}
+{"level":"info","message":"Redis is connected","service":"api-gateway","timestamp":"2026-04-18T18:33:13.497Z"}
