@@ -12,28 +12,32 @@ const insuranceLimiterConfig = new RateLimiterMemory({
   duration: 1,
 });
 
-//DDos protection||Application-layer-rate-limiting
+//DDos protection||Global Application-rate-rate-limiting
 const applicationRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
-  keyPrefix: "middleware",
+  keyPrefix: "global_limit",
   points: 10,
   duration: 1,
   insuranceLimiter: insuranceLimiterConfig,
 });
 
-//configure sensitivelimiter
-const sensitiveEndpointsRateLimiterConfig = new RateLimiterRedis({
+// Post / comments creation limiter config
+const creationRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
-  keyPrefix: "sensitive",
-  points: 5, // only 5 attempts
+  keyPrefix: "creation_limit",
+  points: 30, // only 5 attempts
   duration: 60 * 15, // in 15 mins
   blockDuration: 60 * 30, // lock out for 30 mins
-  insuranceLimiter: new RateLimiterMemory({ points: 5, duration: 60 * 15 }),
+  insuranceLimiter: new RateLimiterMemory({
+    points: 30,
+    duration: 60 * 15,
+    blockDuration: 60 * 30,
+  }),
 });
 
-const sensitiveEndPointLimiter = async (req, res, next) => {
+const creationLimiter = async (req, res, next) => {
   try {
-    await sensitiveEndpointsRateLimiterConfig.consume(req.ip);
+    await creationRateLimiterConfig.consume(req.ip);
     next();
   } catch (rej) {
     logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
@@ -56,4 +60,4 @@ const globalRateLimiter = async (req, res, next) => {
     });
   }
 };
-module.exports = { globalRateLimiter, sensitiveEndPointLimiter };
+module.exports = { globalRateLimiter, creationLimiter };

@@ -1,0 +1,276 @@
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:24:25.000Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:24:26.068Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:24:26.074Z"}
+{"level":"info","message":"Received GET request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:25:21.949Z"}
+{"level":"info","message":"Request body,  {}","service":"identity-service","timestamp":"2026-06-22T19:25:21.950Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:27:22.779Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet1\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\",\"role\":\"admin\"}","service":"identity-service","timestamp":"2026-06-22T19:27:22.780Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:27:22.782Z"}
+{"errors":["\"role\" is not allowed"],"level":"warn","message":"Validation error","service":"identity-service","timestamp":"2026-06-22T19:27:22.794Z"}
+{"level":"error","message":"Validation error","service":"identity-service","stack":"Error: Validation error\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:22:11\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/utils/async.handler.js:2:19\n    at Layer.handleRequest (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/route.js:157:13)\n    at sensitiveEndPointLimiter (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/middleware/rate.limiter.js:39:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-06-22T19:27:22.796Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:27:45.429Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet1\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:27:45.429Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:27:45.437Z"}
+{"level":"error","message":"next is not a function","service":"identity-service","stack":"TypeError: next is not a function\n    at model.<anonymous> (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/models/User.js:39:3)\n    at async Kareem.execPre (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/kareem/index.js:65:24)\n    at async model.$__save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:369:5)\n    at async model.save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:609:5)\n    at async /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:36:3","timestamp":"2026-06-22T19:27:45.812Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:28:47.004Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet1\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:28:47.004Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:28:47.010Z"}
+{"level":"error","message":"next is not a function","service":"identity-service","stack":"TypeError: next is not a function\n    at model.<anonymous> (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/models/User.js:39:3)\n    at async Kareem.execPre (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/kareem/index.js:65:24)\n    at async model.$__save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:369:5)\n    at async model.save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:609:5)\n    at async /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:36:3","timestamp":"2026-06-22T19:28:47.184Z"}
+{"level":"info","message":"Received POST request to /auth/register","service":"identity-service","timestamp":"2026-06-22T19:29:43.656Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet1\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:29:43.656Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:30:40.269Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:30:42.472Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:30:42.481Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T19:31:19.057Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet1\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:31:19.057Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:31:19.061Z"}
+{"level":"error","message":"\"username\" is not allowed","service":"identity-service","stack":"Error: \"username\" is not allowed\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:58:11\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/utils/async.handler.js:2:19\n    at Layer.handleRequest (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/route.js:157:13)\n    at sensitiveEndPointLimiter (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/middleware/rate.limiter.js:39:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-06-22T19:31:19.063Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:31:53.273Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet12\",\"email\":\"janet@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:31:53.274Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:31:53.275Z"}
+{"level":"error","message":"next is not a function","service":"identity-service","stack":"TypeError: next is not a function\n    at model.<anonymous> (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/models/User.js:39:3)\n    at async Kareem.execPre (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/kareem/index.js:65:24)\n    at async model.$__save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:369:5)\n    at async model.save (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/mongoose/lib/model.js:609:5)\n    at async /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:36:3","timestamp":"2026-06-22T19:31:53.515Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:32:33.785Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet12\",\"email\":\"janetjay@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:32:33.785Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T19:32:33.798Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:33:10.466Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet123\",\"email\":\"janetjay@gmail.com\",\"password\":\"janet1234\"}","service":"identity-service","timestamp":"2026-06-22T19:33:10.467Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T19:33:10.470Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:47:33.839Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:47:34.059Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:47:35.143Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:47:35.144Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:47:35.148Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:47:35.148Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:48:31.742Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:48:31.788Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:48:32.710Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:48:32.717Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:48:33.562Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:48:33.568Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:48:40.845Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:48:40.849Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:48:41.825Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:48:41.825Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:48:41.834Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:48:41.841Z"}
+{"level":"info","message":"Received POST request to /api/auth/register/","service":"identity-service","timestamp":"2026-06-22T19:50:11.571Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Chris\",\"email\":\"chris1234\",\"password\":\"chris1234\"}","service":"identity-service","timestamp":"2026-06-22T19:50:11.572Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:50:11.577Z"}
+{"errors":["\"email\" must be a valid email"],"level":"warn","message":"Validation error","service":"identity-service","timestamp":"2026-06-22T19:50:11.587Z"}
+{"level":"error","message":"Validation error","service":"identity-service","stack":"Error: Validation error\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:22:11\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/utils/async.handler.js:2:19\n    at Layer.handleRequest (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/route.js:157:13)\n    at sensitiveEndPointLimiter (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/middleware/rate.limiter.js:39:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-06-22T19:50:11.588Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:52:37.928Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:52:37.944Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:52:39.093Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:52:39.097Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:52:39.126Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:52:39.130Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T19:52:57.823Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T19:52:58.753Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T19:52:58.757Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:53:54.625Z"}
+{"level":"info","message":"Request body,  {\"username\":\"ChrisT\",\"email\":\"chris1234\",\"password\":\"chris1234\"}","service":"identity-service","timestamp":"2026-06-22T19:53:54.625Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:53:54.633Z"}
+{"errors":["\"email\" must be a valid email"],"level":"warn","message":"Validation error","service":"identity-service","timestamp":"2026-06-22T19:53:54.644Z"}
+{"level":"error","message":"Validation error","service":"identity-service","stack":"Error: Validation error\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:22:11\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/utils/async.handler.js:2:19\n    at Layer.handleRequest (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/route.js:157:13)\n    at sensitiveEndPointLimiter (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/middleware/rate.limiter.js:39:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-06-22T19:53:54.645Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:55:33.582Z"}
+{"level":"info","message":"Request body,  {\"username\":\"ChrisT\",\"email\":\"chris@gmail.com\",\"password\":\"chris1234\"}","service":"identity-service","timestamp":"2026-06-22T19:55:33.583Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T19:55:33.585Z"}
+{"buffer":{"data":[106,57,147,53,81,9,217,47,217,9,209,254],"type":"Buffer"},"level":"info","message":"User registered successfully","service":"identity-service","timestamp":"2026-06-22T19:55:33.983Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:57:23.380Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Hondo\",\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T19:57:23.380Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T19:57:23.384Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T19:59:00.750Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Hondo\",\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T19:59:00.751Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T19:59:00.754Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T19:59:21.601Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T19:59:21.602Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T19:59:21.604Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:00:08.418Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:00:08.430Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:00:09.728Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:00:09.732Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:00:09.765Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:00:09.769Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:00:19.599Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:00:19.600Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:00:20.680Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:00:20.684Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:00:20.776Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:00:20.780Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T20:00:26.041Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:00:26.041Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T20:00:26.049Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T20:00:42.083Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Hondo\",\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:00:42.084Z"}
+{"level":"warn","message":"Rate limit exceeded for IP:  ::1","service":"identity-service","timestamp":"2026-06-22T20:00:42.087Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:01:20.708Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:01:20.726Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:01:21.725Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:01:21.729Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:01:21.836Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:01:21.841Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:04:36.739Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:04:36.740Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:04:37.799Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:04:37.805Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:04:37.820Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:04:37.825Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:05:41.892Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:05:41.896Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:05:43.354Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:05:43.359Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:05:43.392Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:05:43.396Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T20:05:47.045Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Hondo\",\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:05:47.045Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T20:05:47.049Z"}
+{"buffer":{"data":[106,57,149,155,140,180,231,178,131,127,44,93],"type":"Buffer"},"level":"info","message":"User registered successfully","service":"identity-service","timestamp":"2026-06-22T20:05:47.438Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T20:15:44.425Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:15:44.428Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T20:15:44.434Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-22T20:15:44.799Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T20:24:24.984Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:24:24.985Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T20:24:24.989Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-22T20:24:25.323Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:28.569Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:46:29.861Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:46:29.865Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:45.891Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:45.987Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:46.047Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:48.915Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:48.949Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-22T20:46:48.958Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:46:50.107Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:46:50.118Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:46:50.112Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:46:50.124Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-22T20:46:50.197Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-22T20:46:50.201Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-22T20:46:56.190Z"}
+{"level":"info","message":"Request body,  {\"username\":\"Ntokozo\",\"email\":\"ntokozo@gmail.com\",\"password\":\"ntokozo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:46:56.191Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-22T20:46:56.196Z"}
+{"buffer":{"data":[106,57,159,64,101,120,109,225,122,170,164,36],"type":"Buffer"},"level":"info","message":"User registered successfully","service":"identity-service","timestamp":"2026-06-22T20:46:56.518Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T20:47:15.993Z"}
+{"level":"info","message":"Request body,  {\"email\":\"ntokozo@gmail.com\",\"password\":\"ntokozo1234\"}","service":"identity-service","timestamp":"2026-06-22T20:47:15.993Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T20:47:15.997Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-22T20:47:16.356Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T21:19:14.469Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T21:19:14.471Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T21:19:14.473Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-22T21:19:14.792Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-22T21:29:58.923Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-22T21:29:58.926Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-22T21:29:58.930Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-22T21:29:59.405Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T18:52:59.502Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T18:52:59.517Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T18:52:59.569Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T18:53:01.958Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-23T18:55:35.319Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-23T18:55:36.344Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-23T18:55:36.350Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:00:43.289Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T19:00:43.290Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:00:43.300Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:00:43.880Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:02:01.183Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T19:02:01.184Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:02:01.194Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:02:01.610Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:04:07.421Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T19:04:07.421Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:04:07.425Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:04:07.870Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-23T19:12:09.218Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-23T19:12:10.366Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-23T19:12:10.370Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:12:28.673Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T19:12:28.674Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:12:28.682Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:12:29.002Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:13:54.595Z"}
+{"level":"info","message":"Request body,  {\"email\":\"terry@gmail.com\",\"password\":\"terry1234\"}","service":"identity-service","timestamp":"2026-06-23T19:13:54.595Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:13:54.603Z"}
+{"level":"warn","message":"Invalid user credentials","service":"identity-service","timestamp":"2026-06-23T19:13:54.897Z"}
+{"level":"error","message":"Invalid user credentials","service":"identity-service","stack":"Error: Invalid user credentials\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:73:11","timestamp":"2026-06-23T19:13:54.899Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2026-06-23T19:14:27.251Z"}
+{"level":"info","message":"Request body,  {\"username\":\"janet12345\",\"email\":\"janetjayjay@gmail.com\",\"password\":\"janet123445\"}","service":"identity-service","timestamp":"2026-06-23T19:14:27.251Z"}
+{"level":"info","message":"Registration endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:14:27.255Z"}
+{"buffer":{"data":[106,58,219,19,23,190,112,244,140,35,250,49],"type":"Buffer"},"level":"info","message":"User registered successfully","service":"identity-service","timestamp":"2026-06-23T19:14:27.561Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:14:50.296Z"}
+{"level":"info","message":"Request body,  {\"email\":\"janetjayjay@gmail.com\",\"password\":\"janet123445\"}","service":"identity-service","timestamp":"2026-06-23T19:14:50.296Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:14:50.299Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:14:50.582Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T19:58:52.669Z"}
+{"level":"info","message":"Request body,  {\"email\":\"janetjayjay@gmail.com\",\"password\":\"janet123445\"}","service":"identity-service","timestamp":"2026-06-23T19:58:52.674Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T19:58:52.687Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T19:58:53.058Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T20:11:44.646Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T20:11:44.650Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T20:11:44.654Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T20:11:45.005Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T20:12:34.931Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T20:12:34.931Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T20:12:34.933Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T20:12:35.539Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T20:19:05.392Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T20:19:05.394Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T20:19:05.436Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T20:19:05.712Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T20:24:01.758Z"}
+{"level":"info","message":"Request body,  {\"email\":\"janetjayjay@gmail.com\",\"password\":\"janet123445\"}","service":"identity-service","timestamp":"2026-06-23T20:24:01.758Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T20:24:01.760Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T20:24:02.160Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-23T20:43:20.970Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-23T20:43:22.534Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-23T20:43:22.541Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T20:45:17.605Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T20:45:17.606Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T20:45:17.624Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T20:45:18.070Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-23T21:15:52.471Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-23T21:15:53.458Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-23T21:15:53.463Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T21:16:56.738Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T21:16:56.739Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T21:16:56.749Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T21:16:57.095Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-23T21:18:57.795Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-23T21:18:57.796Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-23T21:18:57.806Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-23T21:18:59.127Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T10:05:41.766Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy1234\"}","service":"identity-service","timestamp":"2026-06-24T10:05:41.801Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T10:05:42.117Z"}
+{"level":"error","message":"\"password\" length must be at least 8 characters long","service":"identity-service","stack":"Error: \"password\" length must be at least 8 characters long\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:58:11\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/utils/async.handler.js:2:19\n    at Layer.handleRequest (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/node_modules/router/lib/route.js:157:13)\n    at sensitiveEndPointLimiter (/Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/middleware/rate.limiter.js:39:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-06-24T10:05:42.262Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T10:06:01.126Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amyS1234\"}","service":"identity-service","timestamp":"2026-06-24T10:06:01.126Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T10:06:01.153Z"}
+{"level":"warn","message":"Invalid user credentials","service":"identity-service","timestamp":"2026-06-24T10:06:01.672Z"}
+{"level":"error","message":"Invalid user credentials","service":"identity-service","stack":"Error: Invalid user credentials\n    at /Users/macbookpro/Desktop/SOCIAL-MEDIA-MICROSERVICE/identity-service/src/controllers/identity.controller.js:73:11","timestamp":"2026-06-24T10:06:01.673Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T10:06:15.117Z"}
+{"level":"info","message":"Request body,  {\"email\":\"amy@gmail.com\",\"password\":\"amy12345\"}","service":"identity-service","timestamp":"2026-06-24T10:06:15.118Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T10:06:15.132Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T10:06:15.463Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T10:22:56.204Z"}
+{"level":"info","message":"Request body,  {\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-06-24T10:22:56.206Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T10:22:56.213Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T10:22:56.527Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T10:56:23.151Z"}
+{"level":"info","message":"Request body,  {\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-06-24T10:56:23.154Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T10:56:23.209Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T10:56:23.698Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T12:08:43.217Z"}
+{"level":"info","message":"Request body,  {\"email\":\"gina@gmail.com\",\"password\":\"gina1234\"}","service":"identity-service","timestamp":"2026-06-24T12:08:43.220Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T12:08:43.250Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T12:08:43.765Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T12:09:20.727Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-24T12:09:20.727Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T12:09:20.738Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T12:09:21.001Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-24T12:13:19.540Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-24T12:13:19.540Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-24T12:13:19.543Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-24T12:13:19.947Z"}

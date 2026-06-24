@@ -1,2 +1,8 @@
-{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-03-19T17:02:59.594Z"}
-{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-03-19T17:04:58.469Z"}
+{"level":"error","message":"Proxy failure : Invalid value \"undefined\" for header \"x-user-role\"","service":"api-gateway","timestamp":"2026-06-22T20:17:59.047Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-06-22T20:19:30.134Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-06-22T20:19:35.702Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-06-22T21:16:07.339Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-06-22T21:16:13.644Z"}
+{"level":"error","message":"JWT Verification Failure: jwt expired","service":"api-gateway","timestamp":"2026-06-22T21:30:06.597Z"}
+{"level":"error","message":"Proxy failure : ","service":"api-gateway","timestamp":"2026-06-23T21:15:03.279Z"}
+{"level":"error","message":"JWT Verification Failure: jwt malformed","service":"api-gateway","timestamp":"2026-06-23T21:18:44.052Z"}
