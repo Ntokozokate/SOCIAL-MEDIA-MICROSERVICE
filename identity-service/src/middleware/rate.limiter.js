@@ -18,7 +18,7 @@ const insuranceLimiterConfig = new RateLimiterMemory({
 const applicationRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
   keyPrefix: "middleware",
-  points: 10,
+  points: 30,
   duration: 1,
   insuranceLimiter: insuranceLimiterConfig,
 });
@@ -27,10 +27,10 @@ const applicationRateLimiterConfig = new RateLimiterRedis({
 const sensitiveEndpointsRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
   keyPrefix: "sensitive",
-  points: 5, // only 5 attempts
+  points: 20, // only 10 attempts
   duration: 60 * 15, // in 15 mins
-  blockDuration: 60 * 30, // lock out for 30 mins
-  insuranceLimiter: new RateLimiterMemory({ points: 5, duration: 60 * 15 }),
+  blockDuration: 60 * 2, // lock out for 30 mins
+  insuranceLimiter: new RateLimiterMemory({ points: 15, duration: 60 * 15 }),
 });
 
 const sensitiveEndPointLimiter = async (req, res, next) => {
@@ -40,7 +40,7 @@ const sensitiveEndPointLimiter = async (req, res, next) => {
   } catch (rej) {
     logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
     res.status(429).json({
-      message: "Too many attempts",
+      message: "Too many attempts, try after 30 minutes",
       success: false,
     });
   }
@@ -53,7 +53,7 @@ const globalRateLimiter = async (req, res, next) => {
   } catch (rej) {
     logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
     res.status(429).json({
-      message: "Too many attempts",
+      message: "Too many attempts, try say after 30 mins",
       success: false,
     });
   }
