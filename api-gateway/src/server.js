@@ -2,8 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const Redis = require("ioredis");
-const { rateLimit } = require("express-rate-limit");
 const { gatewayWideLimiter } = require("./middleware/rate.limiter");
 const proxy = require("express-http-proxy");
 const logger = require("./utils/logger");
@@ -31,7 +29,7 @@ const proxyOptions = {
     //correctly mapping. /v1/auth/login -> /api/auth/login
     return req.originalUrl.replace(/^\/v1/, "/api");
   },
-  proxyErrorHandler: (err, res, next) => {
+  proxyErrorHandler: (err, res, _next) => {
     logger.error(`Proxy failure : ${err.message}`);
     res.status(500).json({
       message: `Internal server error`,
@@ -45,11 +43,11 @@ app.use(
   "/v1/auth",
   proxy(process.env.IDENTITY_SERVICE_URL, {
     ...proxyOptions,
-    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+    proxyReqOptDecorator: (proxyReqOpts, _srcReq) => {
       proxyReqOpts.headers["Content-Type"] = "application/json";
       return proxyReqOpts;
     },
-    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+    userResDecorator: (proxyRes, proxyResData, _userReq, _userRes) => {
       logger.info(
         `Response received from identity service: ${proxyRes.statusCode}`,
       );
@@ -71,12 +69,35 @@ app.use(
 
       return proxyReqOpts;
     },
-    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+    userResDecorator: (proxyRes, proxyResData, _userReq, _userRes) => {
       logger.info(
         `Response received from Post service: ${proxyRes.statusCode}`,
       );
       return proxyResData;
     },
+  }),
+);
+
+//setting up proxy for media service
+app.use(
+  "/v1/media",
+  authenticateRequest,
+  proxy(process.env.MEDIA_SERVICE_URL, {
+    ...proxyOptions,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+      if (!srcReq.headers["content-type"]?.startsWith("multipart/form-data")) {
+        proxyReqOpts.headers["Content-Type"] = "application/json";
+      }
+      return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, _userReq, _userRes) => {
+      logger.info(
+        `Response received from Media service: ${proxyRes.statusCode}`,
+      );
+      return proxyResData;
+    },
+    parseReqBody: false,
   }),
 );
 
@@ -91,16 +112,19 @@ app.use(errorHandler);
 
 const startServer = async () => {
   try {
-    //connect to the database6
-    //console.log("MONGO_URI:", process.env.MONGO_URI);
-
     app.listen(port, () => {
       logger.info(`API gateway is listening on port:  ${port}`);
+
       logger.info(
-        `API gateway is is running on port  ${process.env.IDENTITY_SERVICE_URL}`,
+        `Proxying identity traffic to: ${process.env.IDENTITY_SERVICE_URL}`,
       );
+
       logger.info(
-        `API gateway is is running on port  ${process.env.POST_SERVICE_URL}`,
+        `Proxying identity traffic to: ${process.env.POST_SERVICE_URL}`,
+      );
+
+      logger.info(
+        `Proxying identity traffic to: ${process.env.MEDIA_SERVICe_URL}`,
       );
 
       logger.info(`Redis Url:  ${process.env.REDIS_URL}`);

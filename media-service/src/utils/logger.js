@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const winston = require("winston");
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -11,15 +13,15 @@ const logger = winston.createLogger({
     winston.format.json(),
   ),
   defaultMeta: {
-    service: "identity-service",
+    service: "media-service",
   },
   transports: [
     new winston.transports.File({
-      filename: "error.log",
+      filename: "logs/error.log",
       level: "error",
     }),
     new winston.transports.File({
-      filename: "combined.log",
+      filename: "logs/combined.log",
     }),
   ],
 });

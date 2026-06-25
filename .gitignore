@@ -10,7 +10,7 @@ node_modules/
 #practice file
 zpractice-file/
 logs/
-.log
+*.log
 
 ser.js
 post.js
