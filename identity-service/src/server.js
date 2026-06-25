@@ -2,15 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const Redis = require("ioredis");
 const logger = require("./utils/logger");
 const routes = require("./routers/identity.service");
 const errorHandler = require("./middleware/global.errorhandler");
 const { connectToBD } = require("./config/mongo");
-const {
-  sensitiveEndPointLimiter,
-  globalRateLimiter,
-} = require("./middleware/rate.limiter");
+const { globalRateLimiter } = require("./middleware/rate.limiter");
 const app = express();
 const port = process.env.PORT || 3001;
 

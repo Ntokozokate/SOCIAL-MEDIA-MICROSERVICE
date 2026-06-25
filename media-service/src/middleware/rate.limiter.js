@@ -1,7 +1,5 @@
 require("dotenv").config();
-
 const redisClient = require("./ioredis.client");
-
 const {
   RateLimiterRedis,
   RateLimiterMemory,
@@ -14,35 +12,38 @@ const insuranceLimiterConfig = new RateLimiterMemory({
   duration: 1,
 });
 
-//DDos protection||Application-layer-rate-limiting
+//DDos protection||Global Application-rate-rate-limiting
 const applicationRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
-  keyPrefix: "middleware",
-  points: 30,
+  keyPrefix: "global_limit",
+  points: 10,
   duration: 1,
   insuranceLimiter: insuranceLimiterConfig,
 });
 
-//configure sensitivelimiter
-const sensitiveEndpointsRateLimiterConfig = new RateLimiterRedis({
+// Post / comments creation limiter config
+const creationRateLimiterConfig = new RateLimiterRedis({
   storeClient: redisClient,
-  keyPrefix: "sensitive",
-  points: 20, // only 10 attempts
+  keyPrefix: "creation_limit",
+  points: 30, // only 5 attempts
   duration: 60 * 15, // in 15 mins
-  blockDuration: 60 * 2, // lock out for 30 mins
-  insuranceLimiter: new RateLimiterMemory({ points: 15, duration: 60 * 15 }),
+  blockDuration: 60 * 30, // lock out for 30 mins
+  insuranceLimiter: new RateLimiterMemory({
+    points: 30,
+    duration: 60 * 15,
+    blockDuration: 60 * 30,
+  }),
 });
 
-const sensitiveEndPointLimiter = async (req, res, next) => {
+const creationLimiter = async (req, res, next) => {
   try {
-    await sensitiveEndpointsRateLimiterConfig.consume(req.ip);
+    await creationRateLimiterConfig.consume(req.ip);
     next();
   } catch (rej) {
     logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
     res.status(429).json({
-      message: "Too many attempts, try after 30 minutes",
+      message: "Too many attempts",
       success: false,
-      rej,
     });
   }
 };
@@ -54,10 +55,9 @@ const globalRateLimiter = async (req, res, next) => {
   } catch (rej) {
     logger.warn(`Rate limit exceeded for IP:  ${req.ip}`);
     res.status(429).json({
-      message: "Too many attempts, try say after 30 mins",
+      message: "Too many attempts",
       success: false,
-      rej,
     });
   }
 };
-module.exports = { globalRateLimiter, sensitiveEndPointLimiter };
+module.exports = { globalRateLimiter, creationLimiter };
