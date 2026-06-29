@@ -8,6 +8,8 @@ const postRoutes = require("./routes/post.routes");
 const errorHandler = require("./middleware/error.handler");
 const { connectToBD } = require("./config/mongo");
 const { globalRateLimiter } = require("./middleware/rate.limiter");
+//const { connect } = require("mongoose");
+const { connectToRabbitMQ } = require("./utils/rabbitMQ");
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -51,6 +53,9 @@ const startServer = async () => {
   //connect to the database
   await connectToBD();
 
+  //connect rabbitMQ
+  await connectToRabbitMQ();
+
   server = app.listen(port, () => {
     logger.info(`Post Service is listening on port:  ${port}`);
   });
@@ -61,13 +66,10 @@ startServer().catch((err) => {
   process.exit(1);
 });
 
-////gracefull shutdown
-
 // unhandled promise rejection
 process.on("unhandledRejection", (reason, promise) => {
   logger.error("unhandledRejection at ", promise, "reason:", reason);
 });
-
 // uncaught exceptions
 
 process.on("uncaughtException", (err) => {

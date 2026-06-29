@@ -1,6 +1,9 @@
 const express = require("express");
 
-const { uploadMedia } = require("../controllers/media.controller");
+const {
+  uploadMedia,
+  getAllMedias,
+} = require("../controllers/media.controller");
 const { authenticateGatewayRequest } = require("../middleware/auth.middleware");
 const { parseAndvalidateFile } = require("../middleware/multer");
 
@@ -12,5 +15,7 @@ router.post(
   parseAndvalidateFile,
   uploadMedia,
 );
+
+router.get("/getall", authenticateGatewayRequest, getAllMedias);
 
 module.exports = router;
