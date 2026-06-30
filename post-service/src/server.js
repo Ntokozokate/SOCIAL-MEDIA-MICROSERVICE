@@ -65,6 +65,32 @@ startServer().catch((err) => {
   logger.error("Failed to start Post service:", err);
   process.exit(1);
 });
+///gracefull shutdown implementation
+
+const gracefulShutdown = (signal) => {
+  logger.info(`${signal} received. Starting graceful shutdown...`);
+
+  if (server) {
+    // Stops the server from accepting new connections, but processes existing ones
+    server.close(async () => {
+      logger.info("Http server closed.");
+
+      try {
+        logger.info("Graceful shutdown complete. Exiting process.");
+        process.exit(0);
+      } catch (err) {
+        logger.error("Error during database disconnection:", err);
+        process.exit(1);
+      }
+    });
+  } else {
+    process.exit(0);
+  }
+};
+
+// Listen for termination signals from Docker / Kubernetes / System
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 // unhandled promise rejection
 process.on("unhandledRejection", (reason, promise) => {

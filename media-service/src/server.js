@@ -10,6 +10,8 @@ const {
   globalRateLimiter,
   creationLimiter,
 } = require("./middleware/rate.limiter");
+const { connectToRabbitMQ, consumeEvent } = require("./utils/rabbitMQ");
+const { handlePostDeleted } = require("./eventHandlers/media-event-handlers");
 
 const app = express();
 const port = process.env.PORT || 3003;
@@ -50,6 +52,11 @@ const startServer = async () => {
   //connect to the database
   await connectToBD();
 
+  await connectToRabbitMQ();
+
+  //consume all the events
+  await consumeEvent("post.deleted", handlePostDeleted);
+
   server = app.listen(port, () => {
     logger.info(`Media Service is listening on port:  ${port}`);
   });
@@ -71,10 +78,6 @@ const gracefulShutdown = (signal) => {
       logger.info("Http server closed.");
 
       try {
-        // Drop your database connection safely here if mongoose has an active handle
-        // await mongoose.connection.close();
-        // logger.info("Database connection closed.");
-
         logger.info("Graceful shutdown complete. Exiting process.");
         process.exit(0);
       } catch (err) {
