@@ -3,8 +3,10 @@ const { deleteMediaFromCloudinary } = require("../utils/cloudinary");
 const logger = require("../utils/logger");
 
 const handlePostDeleted = async (event) => {
-  console.log(event, "eventeventevent");
+  //console.log(event, "eventeventevent");
   const { postId, mediaIds } = event;
+  //Media only stores userId, not postId, so this handler should filter by both mediaIds and userId. Deleting by _id alone lets a post carry another account’s media IDs and remove those files too.
+
   try {
     const mediaToDelete = await Media.find({ _id: { $in: mediaIds } });
 
