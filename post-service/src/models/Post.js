@@ -21,13 +21,6 @@ const postSchema = new mongoose.Schema(
     },
     mediaIds: {
       type: [String],
-      validate: {
-        validator: function (v) {
-          // check if the url is valid
-          return v ? /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(v) : true;
-        },
-        message: "Please provide a valid URL",
-      },
     },
     publishedAt: {
       type: Date,

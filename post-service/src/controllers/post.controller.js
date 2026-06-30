@@ -1,7 +1,6 @@
 const logger = require("../utils/logger");
 const Post = require("../models/Post");
-//const APIError = require("../errors/APIError");
-//const asyncHandler = require("../utils/async.handler");
+const { publishEvent } = require("../utils/rabbitmq");
 const {
   validateCreatePost,
   validateUpdatePost,
@@ -18,6 +17,7 @@ async function invalidatePostCache(req, input) {
     await redisClient.del(keys);
   }
 }
+
 const createPost = async (req, res) => {
   logger.info("Create post endpoint hit");
 
@@ -45,13 +45,13 @@ const createPost = async (req, res) => {
 
     await newPost.save();
 
-    //publish
-    // await publishEvent("post.created", {
-    //     postId: newlyCreatedPost._id.toString(),
-    //     userId: newlyCreatedPost.user.toString(),
-    //     content: newlyCreatedPost.content,
-    //     createdAt: newlyCreatedPost.createdAt,
-    //   });
+    // //publish
+    await publishEvent("post.created", {
+      postId: newPost._id.toString(),
+      userId: newPost.author.toString(),
+      content: newPost.content,
+      createdAt: newPost.createdAt,
+    });
 
     await invalidatePostCache(newPost._id.toString());
     logger.info("Post created successfully", { postId: newPost._id });
@@ -174,14 +174,14 @@ const deletePost = async (req, res) => {
         message: "Could not find post",
       });
     }
-    // //publish post delete method ->
-    // await publishEvent("post.deleted", {
-    //   postId: deletedPost._id.toString(),
-    //   userId: user,
-    //   mediaIds: deletedPost.mediaIds || [],
-    // });
+    //publish post delete method ->
+    await publishEvent("post.deleted", {
+      postId: deletedPost._id.toString(),
+      userId: user,
+      mediaIds: deletedPost.mediaIds || [],
+    });
     //invalidate redis
-    await invalidatePostCache(req, req.params.id);
+    await invalidatePostCache(req.params.id);
 
     res.json({
       success: true,

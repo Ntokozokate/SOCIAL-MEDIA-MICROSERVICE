@@ -37,3 +37,48 @@
 {"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-29T17:52:12.608Z"}
 {"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-29T17:52:12.636Z"}
 {"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-29T17:52:13.110Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T12:29:09.048Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T12:29:09.906Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T12:29:09.911Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T12:38:00.275Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T12:38:00.291Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T12:38:01.402Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T12:38:01.411Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T12:38:01.410Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T12:38:01.423Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T12:48:47.022Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T12:48:47.023Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T12:48:47.920Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T12:48:47.926Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T12:48:47.952Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T12:48:47.958Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-30T18:57:07.809Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-30T18:57:07.811Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-30T18:57:07.828Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-30T18:57:08.746Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:00:16.899Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:00:16.929Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:00:18.113Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:00:18.117Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:00:18.172Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:00:18.177Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:00:20.397Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:00:20.445Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:00:21.647Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:00:21.656Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:00:21.871Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:00:21.887Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:01:02.642Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:01:03.575Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:01:03.584Z"}
+{"level":"info","message":"Redis connected","service":"identity-service","timestamp":"2026-06-30T19:31:54.014Z"}
+{"level":"info","message":"MongoDB is connected successfully","service":"identity-service","timestamp":"2026-06-30T19:31:55.169Z"}
+{"level":"info","message":"Identity service is listening on port:  3001","service":"identity-service","timestamp":"2026-06-30T19:31:55.323Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-30T20:28:26.809Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-30T20:28:26.812Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-30T20:28:26.820Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-30T20:28:28.024Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2026-06-30T20:37:03.965Z"}
+{"level":"info","message":"Request body,  {\"email\":\"hondo@gmail.com\",\"password\":\"hondo1234\"}","service":"identity-service","timestamp":"2026-06-30T20:37:03.966Z"}
+{"level":"info","message":"Login endpoint hit....","service":"identity-service","timestamp":"2026-06-30T20:37:03.977Z"}
+{"level":"info","message":"token generation proceeding....","service":"identity-service","timestamp":"2026-06-30T20:37:04.410Z"}
