@@ -181,7 +181,7 @@ const deletePost = async (req, res) => {
       mediaIds: deletedPost.mediaIds || [],
     });
     //invalidate redis
-    await invalidatePostCache(req.params.id);
+    await invalidatePostCache(req, req.params.id);
 
     res.json({
       success: true,
