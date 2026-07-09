@@ -1,5 +1,4 @@
 const amqp = require("amqplib");
-
 const logger = require("./logger");
 
 let connection = null;
@@ -31,39 +30,46 @@ async function connectToRabbitMQ() {
     await channel.assertExchange(EXCHANGE_NAME, "topic", { durable: false });
     logger.info("Connected to rabbit mq");
     return channel;
-  } catch (e) {
-    logger.error("Error connecting to rabbit mq", e);
+  } catch (error) {
+    logger.error("Error connecting to rabbit mq", error);
     // If the initial boot fails, try again in 5 seconds
     setTimeout(connectToRabbitMQ, 5000);
   }
 }
 
-async function publishEvent(routingKey, message) {
+async function consumeEvent(routingKey, callback) {
   if (!channel) {
-    //trigger a connection
-    logger.warn(
-      "Channel not open. Attempting to reconnect efore publishing...",
-    );
     await connectToRabbitMQ();
   }
-  //checking if the connection attempt was made, if not safely exit
-  if (!channel) {
-    logger.error(
-      `Failed to publish event ${routingKey}: Message broker is offline.`,
-    );
-    return;
-  }
+  const queueName = "search_service_events";
 
-  try {
-    channel.publish(
-      EXCHANGE_NAME,
-      routingKey,
-      Buffer.from(JSON.stringify(message)),
-    );
-    logger.info(`Event published: ${routingKey}`);
-  } catch (error) {
-    logger.error("Failed to publish even:", error);
-  }
+  //set durable: true(Or falseto match the exchange , but never exclusive )
+  await channel.assertQueue(queueName, { durable: false }); //durability must match boilerplate
+
+  //bind this permanent queue
+  await channel.bindQueue(queueName, EXCHANGE_NAME, routingKey);
+
+  //consume from the permanent queue
+  channel.consume(queueName, (msg) => {
+    if (msg !== null) {
+      try {
+        const content = JSON.parse(msg.content.toString());
+        callback(content);
+        channel.ack(msg);
+      } catch (error) {
+        logger.error("Error processing message, rejecting", error);
+        // nack prevents the app from hanging if a message has bad syntax
+        channel.nack(msg, false, false);
+      }
+    }
+  });
+
+  logger.info(`Subscribed to event: ${routingKey} via queue: {queueName}`);
 }
 
-module.exports = { connectToRabbitMQ, publishEvent };
+module.exports = { connectToRabbitMQ, consumeEvent };
+
+//NOTES {exclusive: true}
+// should never be used in the search service because
+// the search service is a stateful data syncronizer
+// so the service needs to mirror what is available in the corresponding services

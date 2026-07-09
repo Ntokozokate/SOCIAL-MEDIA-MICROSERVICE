@@ -45,7 +45,7 @@ const createPost = async (req, res) => {
 
     await newPost.save();
 
-    // //publish
+    // //publish the post.created(the keyname)---consume this from where its needed eg search service
     await publishEvent("post.created", {
       postId: newPost._id.toString(),
       userId: newPost.author.toString(),

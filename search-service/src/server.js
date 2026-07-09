@@ -9,6 +9,7 @@ const { connectToBD } = require("./config/mongo");
 const { globalRateLimiter } = require("./middleware/rate.limiter");
 //const { connect } = require("mongoose");
 const { connectToRabbitMQ } = require("./utils/rabbitMQ");
+const { consumeEvent } = require("../../media-service/src/utils/rabbitMQ");
 
 const app = express();
 const port = process.env.PORT || 3004;
@@ -32,7 +33,7 @@ app.use(globalRateLimiter);
 //Health Check
 app.get("/health", (req, res) => {
   res.status(200).json({
-    service: "post-service",
+    service: "search-service",
     status: "healthy",
   });
 });
@@ -54,6 +55,9 @@ const startServer = async () => {
 
   //connect rabbitMQ
   await connectToRabbitMQ();
+
+  //  consume the events/ subscribe to the events
+  await consumeEvent("post.created");
 
   server = app.listen(port, () => {
     logger.info(`Search Service is listening on port:  ${port}`);

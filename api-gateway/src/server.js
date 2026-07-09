@@ -101,6 +101,29 @@ app.use(
   }),
 );
 
+//setting up proxy for search service
+app.use(
+  "/v1/search",
+  authenticateRequest,
+  proxy(process.env.MEDIA_SERVICE_URL, {
+    ...proxyOptions,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+      if (!srcReq.headers["content-type"]?.startsWith("multipart/form-data")) {
+        proxyReqOpts.headers["Content-Type"] = "application/json";
+      }
+      return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, _userReq, _userRes) => {
+      logger.info(
+        `Response received from Search service: ${proxyRes.statusCode}`,
+      );
+      return proxyResData;
+    },
+    parseReqBody: false,
+  }),
+);
+
 app.get("/health", (req, res) => {
   res.status(200).json({
     service: "api-gateway",
@@ -120,11 +143,15 @@ const startServer = async () => {
       );
 
       logger.info(
-        `Proxying identity traffic to: ${process.env.POST_SERVICE_URL}`,
+        `Proxying post-service traffic to: ${process.env.POST_SERVICE_URL}`,
       );
 
       logger.info(
-        `Proxying identity traffic to: ${process.env.MEDIA_SERVICe_URL}`,
+        `Proxying media traffic to: ${process.env.MEDIA_SERVICE_URL}`,
+      );
+
+      logger.info(
+        `Proxying search traffic to: ${process.env.SEARCH_SERVICE_URL}`,
       );
 
       logger.info(`Redis Url:  ${process.env.REDIS_URL}`);
